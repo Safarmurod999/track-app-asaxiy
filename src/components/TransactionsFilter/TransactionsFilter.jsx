@@ -5,10 +5,10 @@ import { useSearchParams } from 'react-router';
 const TransactionsFilter = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [filters, setFilters] = useState({
-        startDate: searchParams.get('startDate' || ''),
-        endDate: searchParams.get('endDate' || ''),
-        type: searchParams.get('type' || ''),
-        category: searchParams.get('category' || ''),
+        startDate: searchParams.get('startDate') || '',
+        endDate: searchParams.get('endDate') || '',
+        type: searchParams.get('type') || '',
+        category: searchParams.get('category') || '',
     });
     const [errors, setErrors] = useState({ endDate: '' });
 
@@ -62,33 +62,32 @@ const TransactionsFilter = () => {
     }
     return (
         <Form className="my-4">
-            <Row>
-                <Col>
+            <Row className="g-3">
+                <Col xs={12} sm={6} md={3}>
                     <Form.Group>
                         <Form.Label>Start Date</Form.Label>
                         <Form.Control
                             type="date"
                             defaultValue={filters.startDate}
-                            onChange={
-                                handleFrom
-                            }
+                            onChange={handleFrom}
                             required
                         />
                     </Form.Group>
                 </Col>
-                <Col>
+
+                <Col xs={12} sm={6} md={3}>
                     <Form.Group>
                         <Form.Label>End Date</Form.Label>
                         <Form.Control
                             type="date"
                             defaultValue={filters.endDate}
-                            onChange={handleTo
-                            }
+                            onChange={handleTo}
                             isInvalid={!!errors.endDate}
                         />
                     </Form.Group>
                 </Col>
-                <Col>
+
+                <Col xs={12} sm={6} md={3}>
                     <Form.Group>
                         <Form.Label>Type</Form.Label>
                         <Form.Control
@@ -102,7 +101,8 @@ const TransactionsFilter = () => {
                         </Form.Control>
                     </Form.Group>
                 </Col>
-                <Col>
+
+                <Col xs={12} sm={6} md={3}>
                     <Form.Group>
                         <Form.Label>Category</Form.Label>
                         <Form.Control
@@ -115,14 +115,15 @@ const TransactionsFilter = () => {
                     </Form.Group>
                 </Col>
             </Row>
-            <Button
-                variant="primary"
-                className="mt-3"
-                onClick={clearFilters}
-            >
-                Clear Filters
-            </Button>
-        </Form>)
+
+            <div className="d-flex justify-content-end">
+                <Button variant="primary" className="mt-3" onClick={clearFilters}>
+                    Clear Filters
+                </Button>
+            </div>
+        </Form>
+
+    )
 }
 
 export default TransactionsFilter

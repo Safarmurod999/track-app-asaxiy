@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Form, InputGroup, Table } from 'react-bootstrap';
+import { Col, Container, Form, InputGroup, Row, Table } from 'react-bootstrap';
 import { Breadcrumbs } from '../../components/index';
 
 const Converter = () => {
@@ -26,8 +26,8 @@ const Converter = () => {
         const result = amount * data.rates[targetCurrency];
         setConvertedAmount(result.toFixed(2));
         const additionalRatesData = additionalCurrencies.map((currency) => {
-          const rate = data.rates[currency]; 
-          return { currency, rate: rate.toFixed(2) }; 
+          const rate = data.rates[currency];
+          return { currency, rate: rate.toFixed(2) };
         });
 
         setAdditionalRates(additionalRatesData);
@@ -44,54 +44,60 @@ const Converter = () => {
         <Breadcrumbs />
         <div className="my-4">
           <Form>
-            <InputGroup className="mb-3">
-              <Form.Control
-                type="number"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                placeholder="Miqdor kiriting"
-              />
-              <Form.Select
-                value={baseCurrency}
-                onChange={(e) => setBaseCurrency(e.target.value)}
-              >
-                {currencies.map((currency) => (
-                  <option key={currency} value={currency}>
-                    {currency}
-                  </option>
-                ))}
-              </Form.Select>
-            </InputGroup>
+            <Row>
+              <Col md={6}>
+                <InputGroup className="mb-3">
+                  <Form.Control
+                    type="number"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    placeholder="Miqdor kiriting"
+                  />
+                  <Form.Select
+                    value={baseCurrency}
+                    onChange={(e) => setBaseCurrency(e.target.value)}
+                  >
+                    {currencies.map((currency) => (
+                      <option key={currency} value={currency}>
+                        {currency}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </InputGroup>
 
-            <InputGroup className="mb-3">
-              <Form.Control
-                type="number"
-                value={convertedAmount}
-                onChange={(e) => setConvertedAmount(e.target.value)}
-                placeholder={`${targetCurrency} dagi qiymati`}
-              />
-              <Form.Select
-                value={targetCurrency}
-                onChange={(e) => setTargetCurrency(e.target.value)}
-              >
-                {currencies.map((currency) => (
-                  <option key={currency} value={currency}>
-                    {currency}
-                  </option>
-                ))}
-              </Form.Select>
-            </InputGroup>
+                <InputGroup className="mb-3">
+                  <Form.Control
+                    type="number"
+                    value={convertedAmount}
+                    disabled
+                    onChange={(e) => setConvertedAmount(e.target.value)}
+                    placeholder={`${targetCurrency} dagi qiymati`}
+                  />
+                  <Form.Select
+                    value={targetCurrency}
+                    onChange={(e) => setTargetCurrency(e.target.value)}
+                  >
+                    {currencies.map((currency) => (
+                      <option key={currency} value={currency}>
+                        {currency}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </InputGroup>
+              </Col>
+              <Col md={6}>
+                {convertedAmount && (
+                  <p className="text-success fs-2">
+                    {amount || 0} {baseCurrency} = {convertedAmount} {targetCurrency}
+                  </p>
+                )}
+              </Col>
+            </Row>
           </Form>
-
-          {convertedAmount && (
-            <p className="text-success fs-2">
-              {amount || 0} {baseCurrency} = {convertedAmount} {targetCurrency}
-            </p>
-          )}
 
           <div className="my-4">
             <h5>Other Currency Conversions Relative to 1 {baseCurrency}:</h5>
-            <Table striped bordered hover>
+            <Table striped bordered hover className='overflow-x-scroll'>
               <thead>
                 <tr>
                   <th>Currency</th>

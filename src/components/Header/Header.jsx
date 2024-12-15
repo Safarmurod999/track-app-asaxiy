@@ -1,25 +1,15 @@
 
 import React from 'react'
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Container, Nav, Navbar } from 'react-bootstrap'
 
-const Header = () => {
+const Header = ({ toggle, setToggle }) => {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar className="bg-body-tertiary w-100 py-3 px-3">
             <Container>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">About</Nav.Link>
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Converter</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                Transactions
-                            </NavDropdown.Item> 
-                            <NavDropdown.Item href="#action/3.3">Dashboard</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
-                </Navbar.Collapse>
+                <button onClick={() => setToggle(!toggle)} className='fs-5'>
+                    <i className="fa-solid fa-bars"></i>
+                </button>
+                <Nav.Link href="/converter">Manager App</Nav.Link>
             </Container>
         </Navbar>
     )

@@ -52,19 +52,19 @@ const TransactionList = () => {
 
     return (
         <div>
-            {/* Balance information */}
-            <div className="mt-4 mb-4 d-flex justify-content-center gap-5">
-                <p className="fs-4">
-                    <strong>Total Income:</strong> ${totalIncome.toFixed(2)}
-                </p>
-                <p className="fs-4">
-                    <strong>Total Expense:</strong> ${totalExpense.toFixed(2)}
-                </p>
-                <p className="fs-4">
-                    <strong>Net Balance:</strong> ${balance.toFixed(2)}
-                </p>
-            </div>
-            {/* Transaction list */}
+        <div className="mt-4 mb-4 d-flex flex-column flex-md-row justify-content-center gap-3 text-center">
+            <p className="fs-5 m-0">
+                <strong>Total Income:</strong> ${totalIncome.toFixed(2)}
+            </p>
+            <p className="fs-5 m-0">
+                <strong>Total Expense:</strong> ${totalExpense.toFixed(2)}
+            </p>
+            <p className="fs-5 m-0">
+                <strong>Net Balance:</strong> ${balance.toFixed(2)}
+            </p>
+        </div>
+    
+        <div className="table-responsive">
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -85,9 +85,9 @@ const TransactionList = () => {
                                 <td>{transaction.date}</td>
                                 <td
                                     className={`text-capitalize ${transaction.type === "income"
-                                            ? "text-success"
-                                            : "text-danger"
-                                        }`}
+                                        ? "text-success"
+                                        : "text-danger"
+                                    }`}
                                 >
                                     {transaction.type}
                                 </td>
@@ -107,6 +107,8 @@ const TransactionList = () => {
                 </tbody>
             </Table>
         </div>
+    </div>
+    
     );
 };
 

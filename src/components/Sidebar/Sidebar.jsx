@@ -2,14 +2,17 @@ import { routesArr } from '../../data/data'
 import { Link, useLocation } from 'react-router'
 import logo from "../../assets/asaxiy-logo.svg"
 
-const Sidebar = () => {
+const Sidebar = ({ toggle, setToggle }) => {
     const { pathname } = useLocation();
 
     return (
-        <aside className='sidebar position-fixed h-100 bg-dark col-2 px-2 py-3'>
+        <aside className={`sidebar position-fixed top-0 h-100 bg-dark px-2 py-3 z-3 ${toggle ? 'toggle' : ''}`}>
             <div className="text-center">
                 <img src={logo} alt="logo" />
             </div>
+            <button onClick={() => setToggle(!toggle)} className='position-absolute sidebar-btn'>
+                <i className="fa-solid fa-xmark text-white"></i>
+            </button>
             <ul className='mt-4'>
                 {
                     routesArr.map((route) => {

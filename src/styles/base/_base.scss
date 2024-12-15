@@ -46,3 +46,42 @@ ul {
   list-style-type: none;
   padding: 0 !important;
 }
+
+.sidebar {
+  width: 250px;
+  left: 0;
+  transition: 0.3s ease;
+  &-link {
+    &:hover {
+      background-color: #424242;
+    }
+  }
+  &-btn{
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    @media screen and (max-width:992px){
+      display: flex;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    left: -100%;
+  }
+}
+.sidebar.toggle {
+  left: -100%;
+  @media screen and (max-width: 992px) {
+    left: 0;
+  }
+}
+.main {
+  width: calc(100% - 250px);
+  transition: 0.3s ease;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+  }
+}
+.main.toggle {
+  width: 100%;
+}
