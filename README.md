@@ -31,7 +31,7 @@ git clone https://github.com/username/project-name.git
 npm i
 ```
 
-### 3 Loyihani ishga tushirish
+### 3. Loyihani ishga tushirish
 ```bash
 npm run dev
 ```
@@ -46,4 +46,4 @@ Yaxshilash bo'yicha takliflar:
 -Offline rejim: Foydalanuvchi internetga ulanmaganida ham oxirgi olingan valyuta kurslarini ishlatishga imkon berish.
 -Grafik ko'rinish: Valyuta kurslarining vaqt davomida o'zgarishini grafik tarzda ko'rsatish.
 ### 5. Qo'shimcha
--API: Ushbu loyiha ExchangeRate-API dan foydalanadi. API bepul va cheklangan so'rovlar bilan ishlaydi, shuning uchun ko'proq so'rov yuborilsa, API o'zi cheklovlar qo'yadi.
+-API: Ushbu loyiha ExchangeRate-API https://api.exchangerate-api.com/v4/latest dan foydalanadi. API bepul va cheklangan so'rovlar bilan ishlaydi, shuning uchun ko'proq so'rov yuborilsa, API o'zi cheklovlar qo'yadi. 
