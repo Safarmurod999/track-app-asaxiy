@@ -16,6 +16,8 @@ Loyiha quyidagi tarzda ishlaydi:
 2. Foydalanuvchi bir miqdor kiritsa (masalan, 10 USD), tizim ushbu miqdorni target valyutaga avtomatik konvertatsiya qiladi.
 3. Shuningdek, boshqa valyutalar (masalan, GBP, JPY, CNY) ham **1 unit base valyuta** ga nisbatan konvertatsiya kurslarini ko'rsatish uchun jadvalda keltirilgan.
 4. Real vaqt rejimida valyuta kurslari API orqali yangilanadi.
+5. **Tranzaksiyalarni boshqarish sahifasi** tranzaksiyalarni miqdori,kategoriyasi,izoh, sanasi va turli xil valyuta birligida qo'shish imkoniga ega. Bundan tashqari bu sahifada jami daromad,xarajat va umumiy balansni asosiy valyuta(USD) ga avtomatik konvertatsiya qilgan holda hisoblaydi va ma'lum bir vaqt oralig'i, daromad yoki harajat va kategoriya bo'yicha saralash imkoniyati bor.
+6. **Dashboard sahifasi** esa tranzaksiyalarni daromad,xarajat va umumiy grafiklar bo'yicha solishtirish imkoniga ega.  
 
 ## 3. Loyihani ishga tushirish
 

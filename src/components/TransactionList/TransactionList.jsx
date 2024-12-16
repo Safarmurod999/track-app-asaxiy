@@ -94,7 +94,7 @@ const TransactionList = () => {
                                 <td>{transaction.category}</td>
                                 <td>{transaction.amount.toFixed(2)}</td>
                                 <td>{transaction.currency}</td>
-                                <td>{transaction.note}</td>
+                                <td>{transaction.description}</td>
                             </tr>
                         ))
                     ) : (

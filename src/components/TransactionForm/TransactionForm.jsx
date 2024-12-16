@@ -5,11 +5,11 @@ const TransactionForm = ({ showModal, setShowModal }) => {
     const { dispatch, state } = useContext(TransactionContext);
     const [formData, setFormData] = useState({
         amount: "",
+        category: "",
         type: "income",
         date: "",
         currency: "USD",
         description: "",
-        category: "",
     });
 
     const handleSubmit = (e) => {
@@ -84,8 +84,8 @@ const TransactionForm = ({ showModal, setShowModal }) => {
                         <Form.Control
                             type="text"
                             placeholder="Enter a note"
-                            value={formData.note}
-                            onChange={(e) => setFormData({ ...formData, note: e.target.value })}
+                            value={formData.description}
+                            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                         />
                     </Form.Group>
                     <Button type="submit" className='mt-3'>Add Transaction</Button>
